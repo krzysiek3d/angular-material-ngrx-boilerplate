@@ -3,14 +3,11 @@
     <app-header></app-header>
   </div>
 
-  <div class="app__left-sidebar" *ngIf="(leftSideBar$ | async) as leftSideBar">
+  <div class="app__left-sidebar" *ngIf="(sideBar$ | async)">
     <app-sidebar></app-sidebar>
   </div>
 
-  <div
-    class="app__content"
-    [ngClass]="{ 'hide-sidebar': !(leftSideBar$ | async) }"
-  >
+  <div class="app__content" [ngClass]="{ 'hide-sidebar': !(sideBar$ | async) }">
     <router-outlet></router-outlet>
   </div>
 
