@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SharedModule } from 'src/shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 // components
 import * as fromComponents from './components';
@@ -15,7 +15,7 @@ import * as fromGuards from './guards';
 export const ROUTES: Routes = [
   {
     path: '',
-    component: fromContainers.FeaturesComponent
+    component: fromContainers.LoginComponent
   }
 ];
 
@@ -29,4 +29,4 @@ export const ROUTES: Routes = [
     ...fromComponents.components
   ]
 })
-export class FeaturesRoutingModule {}
+export class LoginRoutingModule {}

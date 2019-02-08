@@ -2,8 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// modules
+import { MainLayoutModule } from './layout/main-layout.module';
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 
 import {
   StoreRouterConnectingModule,
@@ -29,13 +31,14 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   : [];
 
 // bootstrap
-import { AppComponent } from './containers/app/app.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MainLayoutModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot(effects),
     StoreRouterConnectingModule,
@@ -46,4 +49,6 @@ import { AppComponent } from './containers/app/app.component';
   providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {}
+}

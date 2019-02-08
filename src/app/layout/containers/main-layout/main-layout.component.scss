@@ -1,0 +1,74 @@
+@import '../../../shared/scss/variables.scss';
+
+$page_width: 1260px;
+$left_sidebar_width: 260px;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 150vh;
+  background-color: $grey_light;
+
+  .app {
+    display: grid;
+    max-width: $page_width;
+    height: 100%;
+    margin: 0 auto;
+    grid-gap: 20px;
+    grid-template-rows: 50px 1fr 2fr 50px;
+    grid-template-areas:
+      'header'
+      'left-sidebar'
+      'content'
+      'footer';
+
+    &__header {
+      position: sticky;
+      top: 0;
+      padding: 10px;
+      grid-area: header;
+      background-color: $brand_color3;
+      border-bottom: solid 1px $grey_mid;
+    }
+    &__content {
+      grid-area: content;
+      height: 100%;
+      background-color: $brand_color3;
+    }
+    &__left-sidebar {
+      grid-area: left-sidebar;
+      background-color: $brand_color3;
+    }
+    &__footer {
+      grid-area: footer;
+      background-color: $brand_color3;
+    }
+  }
+
+  .hide-sidebar {
+    grid-column: 1 / -1;
+    grid-row: 2 / -2;
+  }
+
+  @media (min-width: 768px) {
+    .app {
+      grid-template-columns: $left_sidebar_width 1fr;
+      grid-template-rows: 50px 1fr 50px;
+      grid-template-areas:
+        'header         header'
+        'left-sidebar   content'
+        'footer         footer';
+    }
+  }
+  // uncomment if need like right side bar for bigger screens
+  // @media (min-width: 1024px) {
+  //   .app {
+  //     grid-template-columns: $left_sidebar_width 1fr $right_sidebar_width;
+  //     grid-template-rows: 50px 1fr 50px;
+  //     grid-template-areas:
+  //       'header         header    header'
+  //       'left-sidebar   content   content'
+  //       'footer         footer    footer';
+  //   }
+  // }
+}
