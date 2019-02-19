@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // modules
-import { MainLayoutModule } from './layout/main-layout.module';
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared/shared.module';
 
 import {
   StoreRouterConnectingModule,
@@ -38,13 +36,11 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MainLayoutModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot(effects),
     StoreRouterConnectingModule,
     environment.development ? StoreDevtoolsModule.instrument() : [],
-    BrowserAnimationsModule,
-    SharedModule
+    BrowserAnimationsModule
   ],
   providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent]

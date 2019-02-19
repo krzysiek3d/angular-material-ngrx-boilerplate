@@ -5,13 +5,13 @@ import * as fromRoot from '../reducers';
 export const getRouterData = createSelector(
   fromRoot.getRouterState,
   (router): fromRoot.RouterData => {
-    return router.state && router.state.data;
+    return router && router.state && router.state.data;
   }
 );
 
-export const getRouterLeftSideBar = createSelector(
+export const getRouterSideBar = createSelector(
   getRouterData,
   (data: fromRoot.RouterData): boolean => {
-    return data.leftSideBar;
+    return data && data.sideBar;
   }
 );

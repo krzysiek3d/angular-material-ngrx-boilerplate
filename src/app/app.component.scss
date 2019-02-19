@@ -1,0 +1,55 @@
+@import '../styles.scss';
+@import './shared/scss/variables.scss';
+
+$footer_height: 64px;
+$page_width: 1024px;
+$sidebar_width: 260px;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  .app {
+    display: grid;
+    max-width: $page_width;
+    height: 100%;
+    margin: 20px auto 0 auto;
+    grid-gap: 20px;
+    grid-template-rows: 194px auto $footer_height;
+    grid-template-areas:
+      'sidebar'
+      'content'
+      'footer';
+
+    &__sidebar {
+      grid-area: sidebar;
+      background-color: mat-color($primary);
+      overflow: hidden;
+    }
+    &__content {
+      grid-area: content;
+      height: 100%;
+      background-color: mat-color($accent, 100);
+    }
+    &__footer {
+      grid-area: footer;
+      background-color: mat-color($primary);
+    }
+  }
+
+  .hide-sidebar {
+    grid-column: 1 / -1;
+    grid-row: 1 / -2;
+  }
+
+  @media (min-width: $tablet) {
+    .app {
+      grid-template-columns: $sidebar_width 1fr;
+      grid-template-rows: 1fr $footer_height;
+      grid-template-areas:
+        'sidebar  content'
+        'footer   footer';
+    }
+  }
+}

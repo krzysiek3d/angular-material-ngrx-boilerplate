@@ -1,0 +1,89 @@
+@import '../../../styles.scss';
+
+$page_width: 1024px;
+$header_height: 50px;
+
+:host {
+  .header {
+    position: sticky;
+    padding: 0;
+    top: 0;
+    z-index: 1;
+    &__container {
+      display: grid;
+      max-width: $page_width;
+      width: 100%;
+      margin: 0 auto;
+      grid-template-columns: 40px 70px 1fr;
+      grid-template-areas: 'hamburger logo search';
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__hamburger {
+      grid-area: hamburger;
+    }
+    &__logo {
+      grid-area: logo;
+      height: 50px;
+      img {
+        height: 100%;
+      }
+    }
+    &__search {
+      grid-area: search;
+      height: $header_height;
+      margin: 0 10px;
+      padding: 0 10px;
+      background-color: mat-color($primary, 200);
+    }
+    &__nav {
+      grid-area: navigation;
+      height: $header_height;
+      margin-right: 10px;
+      justify-content: space-around;
+      align-items: center;
+      display: none;
+      a {
+        text-decoration: none;
+        color: mat-color($primary, 50);
+      }
+      .active {
+        color: mat-color($accent);
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    .header {
+      &__container {
+        grid-template-columns: 70px 1fr 1fr;
+        grid-template-areas: 'logo search navigation';
+      }
+      &__hamburger {
+        display: none;
+      }
+      &__nav {
+        display: flex;
+      }
+    }
+  }
+  .app {
+    height: 100%;
+    &__sidenav {
+      width: 200px;
+      background-color: mat-color($accent);
+      .mat-toolbar {
+        img {
+          height: $header_height;
+        }
+      }
+      .mat-nav-list {
+        .active {
+          color: mat-color($primary);
+        }
+        a {
+          color: mat-color($primary, 50);
+        }
+      }
+    }
+  }
+}

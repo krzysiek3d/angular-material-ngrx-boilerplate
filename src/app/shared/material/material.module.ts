@@ -11,6 +11,7 @@ import {
   MatCardModule,
   MatTabsModule,
   MatButtonModule,
+  MatSidenavModule,
   MatChipsModule,
   MatIconModule,
   MatProgressSpinnerModule,
@@ -23,7 +24,8 @@ import {
   MatPaginatorModule,
   MatSortModule,
   MatAutocompleteModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatBadgeModule
 } from '@angular/material';
 
 const materialModules = [
@@ -38,6 +40,7 @@ const materialModules = [
   MatCardModule,
   MatTabsModule,
   MatButtonModule,
+  MatSidenavModule,
   MatChipsModule,
   MatIconModule,
   MatProgressSpinnerModule,
@@ -50,7 +53,8 @@ const materialModules = [
   MatPaginatorModule,
   MatSortModule,
   MatAutocompleteModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatBadgeModule
 ];
 
 @NgModule({
